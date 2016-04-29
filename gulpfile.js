@@ -8,7 +8,7 @@ gulp.task('dev', ['sass']);
 
 
 gulp.task('sass', function(done){
-  gulp.src('./scss/style.scss')
+  gulp.src('./src/scss/style.scss')
   .pipe(sass())
   .on('error', sass.logError)
   .pipe(prefixer({
@@ -21,5 +21,5 @@ gulp.task('sass', function(done){
 });
 
 gulp.task('watch', function(){
-  gulp.watch('./scss/style.scss', ['sass'])
+  gulp.watch('./src/scss/style.scss', ['sass'])
 })
