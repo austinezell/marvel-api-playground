@@ -12,9 +12,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.set('port', CONSTANTS.PORT);
 
-// app.use('/api', require("./routes/api"))
+app.use('/api', require("./routes/api"))
 
 const http = require('http');
 
