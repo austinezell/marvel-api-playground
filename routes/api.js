@@ -4,15 +4,29 @@ const request = require("request");
 const md5 = require("md5");
 const CONSTANTS = require('../config/constants')
 
-router.get("/", (req, res)=>{
+function apiQueries(){
   const ts = Date.now();
   const hash = md5(`${ts}${CONSTANTS.MV_PRIVATE_KEY}${CONSTANTS.MV_PUBLIC_KEY}`);
 
-  const url = `http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${CONSTANTS.MV_PUBLIC_KEY}&hash=${hash}`;
+  return `&ts=${ts}&apikey=${CONSTANTS.MV_PUBLIC_KEY}&hash=${hash}`
+}
+
+router.get("/", (req, res)=>{
+
+  const url = `http://gateway.marvel.com/v1/public/characters?limit=100${apiQueries()}`;
 
   request(url, (err, response, body)=>{
-    res.send(body)
+    res.send(JSON.parse(body))
   })
 })
+// const ts = Date.now();
+// const hash = md5(`${ts}${CONSTANTS.MV_PRIVATE_KEY}${CONSTANTS.MV_PUBLIC_KEY}`);
+//
+// const url = `http://gateway.marvel.com/v1/public/characters?limit=100&ts=${ts}&apikey=${CONSTANTS.MV_PUBLIC_KEY}&hash=${hash}`;
+//
+// request(url, (err, response, body)=>{
+//   console.log(body)
+// })
+
 
 module.exports = router;

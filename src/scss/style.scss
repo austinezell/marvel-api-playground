@@ -1,3 +1,4 @@
+$shadow: rgb(66, 66, 66);
 body{
   background-color: whitesmoke;
   height: 100%;
@@ -15,4 +16,30 @@ body{
   width: 85%;
   height: 100%;
   text-align: center;
+}
+
+.pagination {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  margin: 10px 5px;
+  background-image: radial-gradient(circle at 10px 5px, lightblue 0%, blue 100%);
+  border: none;
+  box-shadow: 2px 2px 4px $shadow;
+  color: white;
+  &:active, &:focus, &:hover{
+    box-shadow: inset 1px 1px 2px $shadow;
+    background-image: radial-gradient(circle at 17px 17px, darken(lightblue, 10%) 0%, lighten(blue, 10%) 50%, blue 90%);
+  }
+}
+
+select {
+  width: 60px;
+  border-radius: 10px;
+  margin: 10px 5px;
+  background-color: white;
+}
+
+*:focus{
+  outline: none;
 }
