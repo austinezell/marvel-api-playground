@@ -1,16 +1,16 @@
-// import {get} from "jquery";
-//
-//
-// get("/api/")
-// .done(data=>console.log(JSON.parse(data)))
-// .error(err=>console.log('aah'))
+"use strict";
+import React from "react";
+import ReactDOM from "react-dom";
+import Selector from "./components/Selector.jsx"
 
+class App extends React.Component {
+  render() {
+    return (
+      <div className="container">
+        <Selector/>
+      </div>
+    )
+  }
+}
 
-// import React from "react";
-//
-//
-// class App extends React.Component {
-//   render() {
-//     return <div>Test</div>
-//   }
-// }
+ReactDOM.render(<App/>, document.getElementById('react-node'))
