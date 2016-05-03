@@ -8,7 +8,8 @@ class Selector extends React.Component{
   }
 
   newSelect() {
-    console.log(this.refs.mySelect.value);
+    // console.log(this.refs.mySelect.value, this.refs.nameValue.value);
+    
   }
 
   render(){
@@ -18,6 +19,8 @@ class Selector extends React.Component{
     }
     return (
       <div className="select-container">
+        <input placeholder="Search by Name" ref="nameValue"/>
+        <label>Results per Page</label>
         <select ref="mySelect">
           {options}
         </select>

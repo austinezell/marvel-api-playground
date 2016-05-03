@@ -18,7 +18,7 @@ body{
   text-align: center;
 }
 
-button.button {
+.button {
   background-image: linear-gradient(to top right, white 0%, yellow 50%, white 100%);
   box-shadow: 1px 1px 2px black;
   border-radius: 5px;
@@ -33,7 +33,7 @@ button.button {
   width: 30px;
   height: 30px;
   border-radius: 15px;
-  margin: 10px 5px;
+  // margin: 10px 5px;
   background-image: radial-gradient(circle at 10px 5px, lightblue 0%, blue 100%);
   border: none;
   transition: box-shadow .5s ease;
@@ -55,4 +55,28 @@ select {
 
 *:focus{
   outline: none;
+}
+
+.nav-container {
+  button {
+    margin: 10px 5px;
+  }
+}
+
+button.left, button.right {
+  height: 0px;
+  width: 0px;
+  background-color: transparent;
+  border: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+}
+
+button.left {
+  border-left: 15px solid black;
+}
+
+
+button.right {
+  border-right: 15px solid black;
 }
