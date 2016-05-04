@@ -6,7 +6,7 @@ import NavContainer from "./components/NavContainer.jsx";
 
 // import {get} from "jquery";
 //
-// get("/api")
+// get("/api/")
 // .done(data=>{
 //   console.log(data);
 // })

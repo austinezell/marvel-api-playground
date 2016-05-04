@@ -1,5 +1,6 @@
 import React from "react";
 import NavBtn from "./NavBtn.jsx";
+import ReactCSSTransitionGroup  from "react-addons-css-transition-group";
 
 class NavContainer extends React.Component {
   constructor(props){
@@ -10,6 +11,7 @@ class NavContainer extends React.Component {
       buttons: []
     };
     this.getPages.bind(this);
+    this.getPages();
   }
   nextPage(){
     this.setState({
@@ -28,17 +30,20 @@ class NavContainer extends React.Component {
   prevPage(){
     this.setState({
       page: --this.state.page,
-      min: this.state.page === 1 ? true : false
+      min: this.state.page === 1 ? true : false,
     })
     if(this.state.page === 1) this.state.min = true;
     this.getPages();
   }
   render(){
-    this.getPages();
     return (
       <div className="nav-container">
         <button disabled={this.state.min} onClick={this.prevPage.bind(this)} className="right"></button>
-        {this.state.buttons}
+        <div className="expand-preventer">
+          <ReactCSSTransitionGroup className="shift-container" transitionName="shift" transitionEnterTimeout={400} transitionLeaveTimeout={300}>
+            {this.state.buttons}
+          </ReactCSSTransitionGroup>
+        </div>
         <button className="left" onClick={this.nextPage.bind(this)}></button>
       </div>
     )

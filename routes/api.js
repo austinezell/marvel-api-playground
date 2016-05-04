@@ -11,9 +11,9 @@ function apiQueries(){
   return `&ts=${ts}&apikey=${CONSTANTS.MV_PUBLIC_KEY}&hash=${hash}`
 }
 
-router.get("/", (req, res)=>{
+router.get("/:name", (req, res)=>{
 
-  const url = `http://gateway.marvel.com/v1/public/characters?limit=100${apiQueries()}`;
+  const url = `http://gateway.marvel.com/v1/public/characters?nameStartsWith=${req.params.name}&limit=100${apiQueries()}`;
 
   request(url, (err, response, body)=>{
     res.send(JSON.parse(body))

@@ -19,7 +19,7 @@ body{
 }
 
 .button {
-  background-image: linear-gradient(to top right, white 0%, yellow 50%, white 100%);
+  background-image: linear-gradient(to top right, red 0%, yellow 50%, red 100%);
   box-shadow: 1px 1px 2px black;
   border-radius: 5px;
   transition: box-shadow .2s ease;
@@ -33,12 +33,14 @@ body{
   width: 30px;
   height: 30px;
   border-radius: 15px;
-  // margin: 10px 5px;
   background-image: radial-gradient(circle at 10px 5px, lightblue 0%, blue 100%);
   border: none;
   transition: box-shadow .5s ease;
   box-shadow: 2px 2px 4px $shadow;
   color: white;
+  text-align: center;
+  vertical-align: top;
+  top: 0;
   &:active, &:focus, &:hover{
     box-shadow: inset 1px 1px 2px $shadow;
     box-shadow: none;
@@ -58,8 +60,10 @@ select {
 }
 
 .nav-container {
+  position: relative;
   button {
     margin: 10px 5px;
+    transition: all .3s;
   }
 }
 
@@ -68,15 +72,58 @@ button.left, button.right {
   width: 0px;
   background-color: transparent;
   border: 0;
+  position: relative;
+  top: -3px;
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
 }
 
 button.left {
-  border-left: 15px solid black;
+  border-left: 15px solid red;
+  margin-left: 20px;
+  &:active, &:focus, &:hover{
+    border-left-color: darken(red, 20%);
+  }
 }
 
+.expand-preventer {
+  width: 400px;
+  vertical-align: top;
+  height: 50px;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.shift-container {
+  display: inline-block;
+  text-align: center;
+  height: 50px;
+  white-space: nowrap;
+  position: relative;
+  left: 0;
+}
 
 button.right {
-  border-right: 15px solid black;
+  border-right: 15px solid red;
+  margin-right: 20px;
+  &:active, &:focus, &:hover{
+    border-right-color: darken(red, 20%);
+  }
+}
+
+.shift-enter {
+  transform: translateX(400px);
+}
+
+.shift-enter.shift-enter-active {
+  transform: translateX(0px);
+}
+
+.shift-leave {
+  transform: translateX(-400px);
+}
+
+.shift-leave.shift-leave-active {
+  transform: translateX(-800px);
 }
