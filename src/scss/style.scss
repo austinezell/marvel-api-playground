@@ -5,6 +5,9 @@ body{
   position: relative;
   margin: 0;
 }
+body, html {
+  overflow-x: hidden;
+}
 
 #react-node {
   height: 100%;
@@ -157,12 +160,36 @@ button.right {
   border: 1px solid black;
   margin: 5px;
   box-shadow: 5px 5px 10px black;
+  border-radius: 15px 5px 15px 5px;
+  transition: all .5s;
 }
 
 .name {
-  font-size: 1.3rem;
-  margin: 0;
-  background-color: blue;
+  font-size: 1rem;
+  margin: 7px;
+  padding: 5px;
+  border-radius: 5px 15px 5px 15px;
+  box-shadow: inset
+  3px 3px blue, inset -3px -3px blue, inset 3px -3px blue, inset -3px 3px blue,
+  5px 5px white, inset -5px -5px white, inset 5px -5px white, inset -5px 5px white;
+  background-color: black;
   color: white;
   height: 2.8rem;
+}
+
+.fade-enter {
+  transform: rotateZ(720deg) scale(0);
+}
+
+.fade-enter.fade-enter-active {
+  transform: rotateZ(0) scale(1);
+  // opacity: 1;
+}
+
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave.fade-in-leave-active {
+  opacity: 0;
 }

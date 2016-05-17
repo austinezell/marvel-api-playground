@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card.jsx";
 import {get} from "jquery";
-let characters = [];
+import ReactCSSTransitionGroup  from "react-addons-css-transition-group";
 
 class CardContainer extends React.Component {
   constructor(props){
@@ -29,7 +29,9 @@ class CardContainer extends React.Component {
     let content = this.getCharacters()
     return (
       <div className="card-container">
-        {content}
+        <ReactCSSTransitionGroup className="fade-container" transitionName="fade" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+          {content}
+        </ReactCSSTransitionGroup>
       </div>
     )
   }
