@@ -3,6 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Selector from "./components/Selector.jsx";
 import NavContainer from "./components/NavContainer.jsx";
+import CardContainer from "./components/CardContainer.jsx";
 
 // import {get} from "jquery";
 //
@@ -16,6 +17,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <Selector/>
+        <CardContainer/>
         <NavContainer/>
       </div>
     )

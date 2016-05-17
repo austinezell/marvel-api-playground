@@ -10,6 +10,16 @@ function apiQueries(){
 
   return `&ts=${ts}&apikey=${CONSTANTS.MV_PUBLIC_KEY}&hash=${hash}`
 }
+router.get("/test", (req, res)=>{
+  const ts = Date.now();
+  const hash = md5(`${ts}${CONSTANTS.MV_PRIVATE_KEY}${CONSTANTS.MV_PUBLIC_KEY}`);
+
+  const url = `http://gateway.marvel.com:80/v1/public/characters?nameStartsWith=wol&limit=50&ts=${ts}&apikey=${CONSTANTS.MV_PUBLIC_KEY}&hash=${hash}`;
+
+  request(url, (err, response, body)=>{
+    res.send(JSON.parse(body));
+  })
+})
 
 router.get("/:name", (req, res)=>{
 
@@ -19,14 +29,5 @@ router.get("/:name", (req, res)=>{
     res.send(JSON.parse(body))
   })
 })
-// const ts = Date.now();
-// const hash = md5(`${ts}${CONSTANTS.MV_PRIVATE_KEY}${CONSTANTS.MV_PUBLIC_KEY}`);
-//
-// const url = `http://gateway.marvel.com/v1/public/characters?limit=100&ts=${ts}&apikey=${CONSTANTS.MV_PUBLIC_KEY}&hash=${hash}`;
-//
-// request(url, (err, response, body)=>{
-//   console.log(body)
-// })
-
 
 module.exports = router;

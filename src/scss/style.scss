@@ -144,7 +144,25 @@ button.right {
   }
 
   .shift-leave.shift-leave-active {
-    // left: 400px;
     left: 0;
   }
+}
+
+
+.card {
+  display: inline-block;
+  width: 200px;
+  vertical-align: top;
+  height: 200px;
+  border: 1px solid black;
+  margin: 5px;
+  box-shadow: 5px 5px 10px black;
+}
+
+.name {
+  font-size: 1.3rem;
+  margin: 0;
+  background-color: blue;
+  color: white;
+  height: 2.8rem;
 }
