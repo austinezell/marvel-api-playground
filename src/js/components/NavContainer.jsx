@@ -40,7 +40,7 @@ class NavContainer extends React.Component {
       <div className="nav-container">
         <button disabled={this.state.min} onClick={this.prevPage.bind(this)} className="right"></button>
         <div className="expand-preventer">
-          <ReactCSSTransitionGroup className="shift-container" transitionName="shift" transitionEnterTimeout={400} transitionLeaveTimeout={300}>
+          <ReactCSSTransitionGroup className="shift-container" transitionName="shift" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
             {this.state.buttons}
           </ReactCSSTransitionGroup>
         </div>

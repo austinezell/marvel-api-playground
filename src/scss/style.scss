@@ -29,25 +29,6 @@ body{
   }
 }
 
-.pagination {
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
-  background-image: radial-gradient(circle at 10px 5px, lightblue 0%, blue 100%);
-  border: none;
-  transition: box-shadow .5s ease;
-  box-shadow: 2px 2px 4px $shadow;
-  color: white;
-  text-align: center;
-  vertical-align: top;
-  top: 0;
-  &:active, &:focus, &:hover{
-    box-shadow: inset 1px 1px 2px $shadow;
-    box-shadow: none;
-    background-image: radial-gradient(circle at 50% 50%, darken(lightblue, 10%) 0%, blue 100%);
-  }
-}
-
 select {
   width: 60px;
   border-radius: 10px;
@@ -86,6 +67,27 @@ button.left {
   }
 }
 
+.pagination {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-image: radial-gradient(circle at 10px 5px, lightblue 0%, blue 100%);
+  border: none;
+  transition: box-shadow .5s ease;
+  box-shadow: 2px 2px 4px $shadow;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  top: 0;
+  &:active, &:focus, &:hover{
+    box-shadow: inset 1px 1px 2px $shadow;
+    box-shadow: none;
+    background-image: radial-gradient(circle at 50% 50%, darken(lightblue, 10%) 0%, blue 100%);
+  }
+}
+
 .expand-preventer {
   width: 400px;
   vertical-align: top;
@@ -113,17 +115,17 @@ button.right {
 }
 
 .shift-enter {
-  transform: translateX(400px);
+  left: 400px;
 }
 
 .shift-enter.shift-enter-active {
-  transform: translateX(0px);
+  left: 0;
 }
 
 .shift-leave {
-  transform: translateX(-400px);
+  left: -400px;
 }
 
 .shift-leave.shift-leave-active {
-  transform: translateX(-800px);
+  left: -800px;
 }
