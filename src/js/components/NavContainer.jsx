@@ -8,6 +8,7 @@ class NavContainer extends React.Component {
     this.state = {
       page: 1,
       min: true,
+      backwards: false,
       buttons: []
     };
     this.getPages.bind(this);
@@ -16,9 +17,10 @@ class NavContainer extends React.Component {
   nextPage(){
     this.setState({
       page: ++this.state.page,
-      min: false
+      min: false,
+      backwards: false
     })
-    this.getPages()
+    this.getPages();
   }
   getPages(){
     let buttons = [];
@@ -31,6 +33,7 @@ class NavContainer extends React.Component {
     this.setState({
       page: --this.state.page,
       min: this.state.page === 1 ? true : false,
+      backwards: true
     })
     if(this.state.page === 1) this.state.min = true;
     this.getPages();
@@ -40,7 +43,7 @@ class NavContainer extends React.Component {
       <div className="nav-container">
         <button disabled={this.state.min} onClick={this.prevPage.bind(this)} className="right"></button>
         <div className="expand-preventer">
-          <ReactCSSTransitionGroup className="shift-container" transitionName="shift" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+          <ReactCSSTransitionGroup className={`${this.state.backwards ? "backwards" : "forwards"} shift-container`} transitionName="shift" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
             {this.state.buttons}
           </ReactCSSTransitionGroup>
         </div>

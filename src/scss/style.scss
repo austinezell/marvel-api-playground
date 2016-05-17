@@ -129,3 +129,22 @@ button.right {
 .shift-leave.shift-leave-active {
   left: -800px;
 }
+
+.backwards {
+  .shift-enter {
+    left: -400px;
+  }
+
+  .shift-enter.shift-enter-active {
+    left: 0;
+  }
+
+  .shift-leave {
+    left: -400px;
+  }
+
+  .shift-leave.shift-leave-active {
+    // left: 400px;
+    left: 0;
+  }
+}
