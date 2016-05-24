@@ -5,18 +5,18 @@ class Selector extends React.Component{
 
   constructor(props){
     super(props);
+    this.newSelect.bind(this);
   }
 
   newSelect() {
     // console.log(this.refs.mySelect.value, this.refs.nameValue.value);
-    
+
   }
 
   render(){
-    let options = [];
-    for(let i=1;i <= 8; i++){
-      options.push(<Option key={i} value={i}/>)
-    }
+    let options = [5,10,25,50].map(num=>{
+      return <Option key={num} value={num}/>
+    })
     return (
       <div className="select-container">
         <input placeholder="Search by Name" ref="nameValue"/>

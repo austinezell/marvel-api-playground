@@ -27,6 +27,7 @@ class CardContainer extends React.Component {
 
   render(){
     let content = this.getCharacters()
+    console.log(this.state.characters);
     return (
       <div className="card-container">
         <ReactCSSTransitionGroup className="fade-container" transitionName="fade" transitionEnterTimeout={300} transitionLeaveTimeout={300}>

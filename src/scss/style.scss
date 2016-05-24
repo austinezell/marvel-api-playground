@@ -156,25 +156,33 @@ button.right {
   display: inline-block;
   width: 200px;
   vertical-align: top;
-  height: 200px;
+  height: 300px;
   border: 1px solid black;
   margin: 5px;
   box-shadow: 5px 5px 10px black;
   border-radius: 15px 5px 15px 5px;
+  position: relative;
   transition: all .5s;
+  background-position: center;
+  background-size: cover;
+  img{
+    width: auto;
+    height: 100%;
+  }
 }
 
 .name {
   font-size: 1rem;
   margin: 7px;
-  padding: 5px;
-  border-radius: 5px 15px 5px 15px;
-  box-shadow: inset
-  3px 3px blue, inset -3px -3px blue, inset 3px -3px blue, inset -3px 3px blue,
-  5px 5px white, inset -5px -5px white, inset 5px -5px white, inset -5px 5px white;
-  background-color: black;
-  color: white;
-  height: 2.8rem;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  background-color: rgba(white, .8);
+  color: black;
+  .subtitle {
+    font-size: .8rem;
+  }
 }
 
 .fade-enter {
@@ -183,13 +191,14 @@ button.right {
 
 .fade-enter.fade-enter-active {
   transform: rotateZ(0) scale(1);
-  // opacity: 1;
 }
 
 .fade-leave {
+  transform: translateY(0);
   opacity: 1;
 }
 
 .fade-leave.fade-in-leave-active {
+  transform: translateY(100%);
   opacity: 0;
 }
