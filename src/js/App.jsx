@@ -14,16 +14,16 @@ class App extends React.Component {
     super(props);
   }
   componentDidMount(){
-    const {dispatch} = this.props;
-    dispatch(fetchCharacters());
+    this.props.dispatch(fetchCharacters());
   }
-  getNewSelection(){
-
+  getNewSelection(name, amount){
+    this.props.dispatch(fetchCharacters(name, amount))
   }
   render() {
+    console.log(this.props);
     return (
       <div className="container">
-        <Selector/>
+        <Selector getNewSelection={this.getNewSelection.bind(this)}/>
         <CardContainer characters={this.props.characters}/>
         <NavContainer/>
       </div>

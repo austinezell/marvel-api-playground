@@ -1,27 +1,16 @@
 import React from "react";
-import Option from "./Option.jsx";
 
 class Selector extends React.Component{
-
-  constructor(props){
-    super(props);
-  }
-
   newSelect() {
-    // console.log(this.refs.mySelect.value, this.refs.nameValue.value);
-
+    this.props.getNewSelection(this.refs.name.value, this.refs.amount.value);
   }
-
   render(){
-    let options = [10,25,50,100].map(num=>{
-      return <Option key={num} value={num}/>
-    })
     return (
       <div className="select-container">
-        <input placeholder="Search by Name" ref="nameValue"/>
+        <input placeholder="Search by Name" ref="name"/>
         <label>Results per Page</label>
-        <select ref="mySelect">
-          {options}
+        <select ref="amount">
+          {[20,50,100].map(num=><option key={num} value={num}>{num}</option>)}
         </select>
         <button onClick={this.newSelect.bind(this)} className="button">Get Selection</button>
       </div>

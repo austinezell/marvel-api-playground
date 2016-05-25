@@ -9,10 +9,10 @@ function gotCharacters(data){
   }
 }
 
-export function fetchCharacters(){
+export function fetchCharacters(name, amount){
+  let url = `/api/${name ? name + "/" : ""}${amount ? amount : ""}`;
   return dispatch => {
-    return get("/api/test")
+    return get(url)
     .then(res=>dispatch(gotCharacters(res.data.results)))
-
   }
 }
