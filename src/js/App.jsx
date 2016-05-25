@@ -4,41 +4,44 @@ import {render} from "react-dom";
 import {Provider} from "react-redux"
 import Selector from "./components/Selector.jsx";
 import NavContainer from "./components/NavContainer.jsx";
-import {get} from "jquery";
+import { connect } from 'react-redux';
 import CardContainer from "./components/CardContainer.jsx";
+import {fetchCharacters} from "./actions/index"
 
-// import {get} from "jquery";
-//
-// get("/api/")
-// .done(data=>{
-//   console.log(data);
-// })
 
 class App extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      characters: []
-    }
-    get("/api/test")
-    .then(res=>this.setState({
-      characters: res.data.results
-    }))
   }
+  componentDidMount(){
+    const {dispatch} = this.props;
+    dispatch(fetchCharacters());
+  }
+  getNewSelection(){
 
+  }
   render() {
     return (
       <div className="container">
         <Selector/>
-        <CardContainer characters={this.state.characters}/>
+        <CardContainer characters={this.props.characters}/>
         <NavContainer/>
       </div>
     )
   }
 }
 
+import config from "./store/store.js"
+const store = config();
+
+function mapStateToProps(state){
+  return state;
+}
+
+App = connect(mapStateToProps)(App)
+
 render(
-  <Provider>
+  <Provider store={store}>
     <App/>
   </Provider>,
   document.getElementById('react-node')

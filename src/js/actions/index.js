@@ -1,9 +1,18 @@
-export const REQUEST_CHARACTERS = "REQUEST_CHARACTERS";
-export const RECEIVE_CHARACTERS = "RECEIVE_CHARACTERS";
+import {get} from "jquery";
 
+export const GOT_CHARACTERS = "GOT_CHARACTERS";
 
-export function getCharacters(name, amount, offset){
+function gotCharacters(data){
   return {
-    type: "GET_CHARACTERS", name, amount, offset
+    type: GOT_CHARACTERS,
+    characters: data
+  }
+}
+
+export function fetchCharacters(){
+  return dispatch => {
+    return get("/api/test")
+    .then(res=>dispatch(gotCharacters(res.data.results)))
+
   }
 }

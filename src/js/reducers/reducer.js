@@ -1,9 +1,14 @@
 import {combineReducers} from "redux";
 
-function charReducer(state, action) {
+function charReducer(state= {
+  isGetting: false,
+  characters: []
+}, action) {
   switch(action.type){
-    case "GET_CHARACTERS": {
-
+    case "GOT_CHARACTERS": {
+      return Object.assign({}, state, {
+        characters: action.characters
+      })
     }
     default: {
       return state;
@@ -16,4 +21,5 @@ const rootReducer = combineReducers({
 })
 
 
-export default rootReducer
+
+export default charReducer
