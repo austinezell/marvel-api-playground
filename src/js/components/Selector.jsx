@@ -5,7 +5,6 @@ class Selector extends React.Component{
 
   constructor(props){
     super(props);
-    this.newSelect.bind(this);
   }
 
   newSelect() {
@@ -14,7 +13,7 @@ class Selector extends React.Component{
   }
 
   render(){
-    let options = [5,10,25,50].map(num=>{
+    let options = [10,25,50,100].map(num=>{
       return <Option key={num} value={num}/>
     })
     return (

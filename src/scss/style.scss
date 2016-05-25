@@ -159,8 +159,8 @@ button.right {
   height: 300px;
   border: 1px solid black;
   margin: 5px;
-  box-shadow: 5px 5px 10px black;
-  border-radius: 15px 5px 15px 5px;
+  box-shadow: 1px 0 0 grey, 2px 0 0 black, 3px 0 0 grey, 4px 0 0 black, 5px 0 0 grey, 5px 5px 10px black;
+  // border-radius: 15px 5px 15px 5px;
   position: relative;
   transition: all .5s;
   background-position: center;

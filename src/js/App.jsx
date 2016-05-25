@@ -1,8 +1,10 @@
 "use strict";
 import React from "react";
-import ReactDOM from "react-dom";
+import {render} from "react-dom";
+import {Provider} from "react-redux"
 import Selector from "./components/Selector.jsx";
 import NavContainer from "./components/NavContainer.jsx";
+import {get} from "jquery";
 import CardContainer from "./components/CardContainer.jsx";
 
 // import {get} from "jquery";
@@ -13,15 +15,31 @@ import CardContainer from "./components/CardContainer.jsx";
 // })
 
 class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      characters: []
+    }
+    get("/api/test")
+    .then(res=>this.setState({
+      characters: res.data.results
+    }))
+  }
+
   render() {
     return (
       <div className="container">
         <Selector/>
-        <CardContainer/>
+        <CardContainer characters={this.state.characters}/>
         <NavContainer/>
       </div>
     )
   }
 }
 
-ReactDOM.render(<App/>, document.getElementById('react-node'))
+render(
+  <Provider>
+    <App/>
+  </Provider>,
+  document.getElementById('react-node')
+)

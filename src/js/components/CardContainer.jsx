@@ -4,16 +4,6 @@ import {get} from "jquery";
 import ReactCSSTransitionGroup  from "react-addons-css-transition-group";
 
 class CardContainer extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      characters: []
-    }
-    get("/api/test")
-    .then(res=>this.setState({
-      characters: res.data.results
-    }))
-  }
   getCharacters(){
     let content = [];
     const characters = this.state.characters
@@ -24,7 +14,6 @@ class CardContainer extends React.Component {
     }
     return content;
   }
-
   render(){
     let content = this.getCharacters()
     console.log(this.state.characters);
